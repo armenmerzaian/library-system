@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" text="Librarian Dashboard" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.senecacollege.assignment1.LibrarianController">
+   <content>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Check-Out">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000004" height="300.0" layoutX="26.0" layoutY="22.0" stroke="#0000006a" strokeType="INSIDE" width="545.0" />
+                        <ChoiceBox fx:id="studentchoice" layoutX="104.0" layoutY="68.0" prefHeight="25.0" prefWidth="230.0" />
+                        <Label layoutX="104.0" layoutY="51.0" text="Student" />
+                        <TextField fx:id="checkoutMaterialCode" layoutX="104.0" layoutY="119.0" onKeyTyped="#setCheckoutErrorLbl" prefHeight="25.0" prefWidth="230.0" />
+                        <Label layoutX="104.0" layoutY="102.0" text="Material Code:" />
+                        <Label layoutX="104.0" layoutY="163.0" text="Issue Date:" />
+                        <DatePicker fx:id="issuedate" disable="true" editable="false" layoutX="104.0" layoutY="180.0" />
+                        <Label layoutX="104.0" layoutY="213.0" text="Return Date:" />
+                        <DatePicker fx:id="returndate" layoutX="104.0" layoutY="230.0" />
+                        <Button fx:id="checkout_clearBtn" layoutX="107.0" layoutY="282.0" mnemonicParsing="false" onAction="#checkout_clearFields" text="Clear" />
+                        <Button fx:id="checkoutMaterialBtn" layoutX="171.0" layoutY="282.0" mnemonicParsing="false" onAction="#checkoutMaterial" text="Check-Out" />
+                        <Label fx:id="checkoutErrorLbl" layoutX="358.0" layoutY="123.0" textFill="RED" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Return">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000004" height="300.0" layoutX="27.0" layoutY="22.0" stroke="#0000006a" strokeType="INSIDE" width="545.0" />
+                        <TextField fx:id="returnMaterialCode" layoutX="77.0" layoutY="90.0" prefHeight="25.0" prefWidth="461.0" />
+                        <Label layoutX="77.0" layoutY="65.0" text="Material Code:" />
+                        <Button fx:id="returnClearBtn" layoutX="227.0" layoutY="172.0" mnemonicParsing="false" onAction="#emptyRMC" text="Clear" />
+                        <Button fx:id="returnBtn" layoutX="308.0" layoutY="172.0" mnemonicParsing="false" onAction="#returnMaterial" text="Return" />
+                        <Label fx:id="returnErrorLbl" layoutX="227.0" layoutY="128.0" textFill="RED" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Requests">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000003" height="300.0" layoutX="27.0" layoutY="22.0" stroke="#00000050" strokeType="INSIDE" width="304.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000003" height="300.0" layoutX="348.0" layoutY="22.0" stroke="#00000050" strokeType="INSIDE" width="237.0" />
+                        <Button fx:id="deleteRequestBtn" layoutX="248.0" layoutY="147.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Delete" />
+                        <Button fx:id="acceptRequestBtn" layoutX="248.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Accept" />
+                        <ListView fx:id="requestListView" layoutX="48.0" layoutY="59.0" prefHeight="245.0" prefWidth="188.0" />
+                        <ListView fx:id="waitlistListView" layoutX="373.0" layoutY="62.0" prefHeight="245.0" prefWidth="188.0" />
+                        <Label layoutX="48.0" layoutY="34.0" text="Requests" />
+                        <Label layoutX="373.0" layoutY="37.0" text="Waitlist" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab text="Add">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="addBookBtn" layoutX="33.0" layoutY="36.0" mnemonicParsing="false" onAction="#showAddBook" prefHeight="25.0" prefWidth="100.0" text="Add Book" />
+                        <Button fx:id="addDVDBtn" layoutX="33.0" layoutY="71.0" mnemonicParsing="false" onAction="#showAddDVD" prefHeight="25.0" prefWidth="100.0" text="Add DVD" />
+                        <Button fx:id="AddCDBtn" layoutX="33.0" layoutY="105.0" mnemonicParsing="false" onAction="#showAddCD" prefHeight="25.0" prefWidth="100.0" text="Add CD" />
+                        <Button fx:id="AddMagazineBtn" layoutX="33.0" layoutY="140.0" mnemonicParsing="false" onAction="#showAddMagazine" prefHeight="25.0" prefWidth="100.0" text="Add Magazine" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="View">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <SplitPane dividerPositions="0.29081632653061223" layoutX="3.0" layoutY="4.0" prefHeight="334.0" prefWidth="590.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="344.0">
+                                 <children>
+                                    <Button fx:id="viewAllMaterialsBtn" layoutX="34.0" layoutY="56.0" mnemonicParsing="false" onAction="#displayAllMaterials" prefWidth="100.0" text="All Materials" />
+                                    <Button fx:id="viewAllBooksBtn" layoutX="34.0" layoutY="106.0" mnemonicParsing="false" onAction="#displayAllBooks" prefWidth="100.0" text="All Books" />
+                                    <Button fx:id="viewAllDVDsBtn" layoutX="34.0" layoutY="154.0" mnemonicParsing="false" onAction="#displayAllDVDs" prefWidth="100.0" text="All DVDs" />
+                                    <Button fx:id="viewAllCDsBtn" layoutX="34.0" layoutY="202.0" mnemonicParsing="false" onAction="#displayAllCDs" prefWidth="100.0" text="All CDs" />
+                                    <Button fx:id="viewAllMagazinesBtn" layoutX="34.0" layoutY="250.0" mnemonicParsing="false" onAction="#displayAllMagazines" prefWidth="100.0" text="All Magazines" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="332.0" prefWidth="402.0">
+                                 <children>
+                                    <ListView fx:id="itemListView" layoutX="7.0" layoutY="7.0" prefHeight="318.0" prefWidth="399.0" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+            <Tab text="Logout">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="logoutBtn" layoutX="244.0" layoutY="159.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="110.0" text="Logout" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </content>
+</TitledPane>
